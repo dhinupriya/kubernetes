@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: my-java-app-rolebinding
+  namespace: prod
+  labels:
+    app: my-java-app
+subjects:
+  - kind: ServiceAccount
+    name: my-java-app-sa
+    namespace: prod
+roleRef:
+  kind: Role
+  name: my-java-app-role
+  apiGroup: rbac.authorization.k8s.io

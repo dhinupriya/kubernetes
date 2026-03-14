@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-to-my-java-app
+  namespace: dev
+  labels:
+    app: my-java-app
+spec:
+  podSelector:
+    matchLabels:
+      app: my-java-app
+  policyTypes:
+    - Ingress
+  ingress:
+    # Allow from same namespace (e.g. other pods in dev)
+    - from:
+        - podSelector: {}
+      ports:
+        - protocol: TCP
+          port: 8080
+    # Allow from ingress-nginx controller (uncomment and adjust if using ingress-nginx)
+    # - from:
+    #     - namespaceSelector:
+    #         matchLabels:
+    #           app.kubernetes.io/name: ingress-nginx
+    #   ports:
+    #     - protocol: TCP
+    #       port: 8080

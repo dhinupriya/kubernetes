@@ -1,0 +1,17 @@
+# Build
+java-app/target/
+*.jar
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env / secrets (if any)
+.env
+*.pem

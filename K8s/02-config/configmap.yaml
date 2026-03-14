@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-java-app-config
+  labels:
+    app: my-java-app
+data:
+  APPLICATION_NAME: "Kubernetes Demo App"
+  LOG_LEVEL: "INFO"
+  ENVIRONMENT: "production"
+  FEATURE_FLAG_NEW_UI: "true"
+  MAX_CONNECTIONS: "100"
